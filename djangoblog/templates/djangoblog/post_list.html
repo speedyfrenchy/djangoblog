@@ -1,17 +1,13 @@
-<title>Blog</title>
+{% extends "djangoblog/base.html" %}
 
-<head><h1> Speedy's Blog </h1></head>
-
-<body>
-
-
-{% for post in posts %}
-  <div>
-    <p>published: {{ post.published_date }}</p>
-    <h1><a href="">{{ post.title }}</a></h1>
-    <p>{{ post.text|linebreaks }}</p>
-  </div>
-{% endfor %}
-
-
-</body>
+{% block content %}
+	{% for post in posts %}
+	  <div class="post">
+	    <div class="date">
+	      {{ post.published_date }}
+	    </div>
+	    <h1><a href="">{{ post.title }}</a></h1>
+	    <p>{{ post.text|linebreaks }}</p>
+	  </div>
+	{% endfor %}
+{% endblock content %}
